@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
@@ -32,19 +31,3 @@ class Stock(models.Model):
 
 	def __str__(self):
 		return (self.cantidad)
-
-class Direccion(models.Model):
-	calle = models.CharField(verbose_name='Calle', max_length=144)
-	numero = models.IntegerField()
-	block = models.IntegerField()
-	dep = models.IntegerField()
-	region = models.CharField(verbose_name='Region', max_length=144)
-	ciudad = models.CharField(verbose_name='Ciudad', max_length=144)
-	comuna = models.CharField(verbose_name='Comuna', max_length=144)
-
-
-class Usuario(AbstractUser):
-	pass
-#	direccion = models.ForeignKey(Direccion)
-#	telefono = models.IntegerField()
-
