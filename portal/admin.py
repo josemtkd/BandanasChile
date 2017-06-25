@@ -10,5 +10,10 @@ class ProductoAdmin(admin.ModelAdmin):
 	list_filter = ('categoria'),
 	list_search = ('nombre','destacada')
 
+class UsuariorAdmin(admin.ModelAdmin):
+	list_display = ('username', 'email')
+	
+
 admin.site.register(Categoria)
 admin.site.register(Producto,ProductoAdmin)
+

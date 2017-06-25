@@ -44,7 +44,6 @@ class Direccion(models.Model):
 
 
 class Usuario(AbstractUser):
-	pass
-#	direccion = models.ForeignKey(Direccion)
-#	telefono = models.IntegerField()
+	direccion = models.ForeignKey(Direccion, null =True)
+	telefono = models.IntegerField(null = True)
 
