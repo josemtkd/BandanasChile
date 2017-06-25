@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.forms import ModelForm
-from usuarios.models import Usuario, Direccion
+from usuarios.models import Usuario
+from django.contrib.auth.forms import UserCreationForm
 
-class UsuarioForm(ModelForm):
+class UsuarioForm(UserCreationForm):
     class Meta:
         model = Usuario
-        fields = ['username','first_name','last_name','email']
+        fields = ['username','first_name','last_name','email','calle','numero','block','dep','region','ciudad','comuna']
 
-
-class DireccionForm(ModelForm):
-    class Meta:
-        model = Direccion
-        fields = ['calle','numero','block','dep','region','ciudad','comuna']
