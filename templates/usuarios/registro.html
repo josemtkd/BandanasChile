@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+<div class="container">
+      <div class="row">
+          <div class="col-md-12">
+            <h1>Registro de Usuario</h1>
+            <hr>
+            <form method="post">{% csrf_token %}
+            {{ form|bootstrap }}
+            {{ formdirecc|bootstrap }}
+            <br>
+            <input type="submit"  value="Enviar" class="btn btn-primary btn-lg">
+            </form>
+
+          </div>
+      </div>
+    </div>
+
+{% endblock %}
