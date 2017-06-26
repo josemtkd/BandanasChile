@@ -44,17 +44,6 @@ class Login(FormView):
         login(self.request, form.get_user())
         return super(Login, self).form_valid(form)
 
-# def registro(request):
-
-#     template_name = 'usuarios/registro.html'
-#     form = UsuarioForm(request.POST or None)
-
-#     if form.is_valid():
-#         form.save()
-#         return HttpResponseRedirect(reverse('login'))
-
-#     return render(request, template_name, {'form': form})
-
 
 class Registro(CreateView):
 	model = User
