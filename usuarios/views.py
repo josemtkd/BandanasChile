@@ -17,7 +17,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from usuarios.form import *
 from django.urls import reverse
-from django.core.files.storage import FileSystemStorage
 
 
 # Create your views here.
@@ -30,16 +29,24 @@ def logout(request):
 def perfil(request):
     template_name = 'usuarios/perfil.html'
     usuario = Usuario.objects.get(username = request.user.username)
+    form = FotoForm(request.POST, request.FILES or None,instance = usuario )
+    form2 = personalesForm(request.POST or None, instance = usuario )
+
     if request.method == 'POST':
-        form = FotoForm(request.POST, request.FILES,instance = usuario )
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('perfil'))
     else:
         form = FotoForm()
-    return render(request, template_name, {
-        'form': form
-    })
+
+    if request.method == 'POST':
+
+        if form2.is_valid():
+            form2.save()
+            return HttpResponseRedirect(reverse('perfil'))
+
+        
+    return render(request, template_name, {'form': form , 'form2': form2 })
 
 class Login(FormView):
     

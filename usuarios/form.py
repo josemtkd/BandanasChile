@@ -13,3 +13,8 @@ class FotoForm(ModelForm):
 	class Meta:
 		model = Usuario
 		fields = ['fotoPerfil']
+
+class personalesForm(ModelForm):
+	class Meta:
+		model = Usuario
+		fields = ['first_name','last_name','email','telefono']

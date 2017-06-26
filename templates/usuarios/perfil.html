@@ -37,6 +37,11 @@
                 </div>
                 <div class="tab-pane fade" id="personales">
                     <h1>Datos Personales</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form2|bootstrap}}
+                    <input type="submit"  value="Enviar" class="btn btn-primary btn-md">
+                    </form>
                 </div>
                 <div class="tab-pane fade" id="direcciones">
                     <h1>Direcciones</h1>
