@@ -15,7 +15,9 @@ from django.contrib.auth import login
 from django.contrib import auth
 from django.shortcuts import render
 from django.http import HttpResponse
-from usuarios.form import UsuarioForm
+from usuarios.form import *
+from django.urls import reverse
+from django.core.files.storage import FileSystemStorage
 
 
 # Create your views here.
@@ -26,8 +28,18 @@ def logout(request):
 
 
 def perfil(request):
-
-    return render(request, 'usuarios/perfil.html')
+    template_name = 'usuarios/perfil.html'
+    usuario = Usuario.objects.get(username = request.user.username)
+    if request.method == 'POST':
+        form = FotoForm(request.POST, request.FILES,instance = usuario )
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('perfil'))
+    else:
+        form = FotoForm()
+    return render(request, template_name, {
+        'form': form
+    })
 
 class Login(FormView):
     
@@ -55,9 +67,6 @@ class Registro(CreateView):
 	template_name = 'usuarios/registro.html'
 	form_class = UsuarioForm
 	success_url = reverse_lazy('login')
-
-
-
 
 
 

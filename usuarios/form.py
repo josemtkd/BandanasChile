@@ -9,3 +9,7 @@ class UsuarioForm(UserCreationForm):
         model = Usuario
         fields = ['username','first_name','last_name','email']
 
+class FotoForm(ModelForm):
+	class Meta:
+		model = Usuario
+		fields = ['fotoPerfil']
