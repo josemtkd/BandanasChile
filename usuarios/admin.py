@@ -2,13 +2,6 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-
-
-from .models import Usuario
+from django.contrib.auth.models import User 
 
 # Register your models here.
-class UsuarioAdmin(admin.ModelAdmin):
-	list_display = ('username', 'email')
-
-
-admin.site.register(Usuario,UsuarioAdmin)
