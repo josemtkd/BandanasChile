@@ -6,11 +6,16 @@ from django.views.generic.edit import FormView
 from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.views.generic import CreateView
 from django.contrib.auth import logout
 from django.contrib.auth import login
 from django.contrib import auth
 from django.shortcuts import render
 from django.http import HttpResponse
+from usuarios.form import UsuarioForm
+
 
 # Create your views here.
 def logout(request):
@@ -38,5 +43,41 @@ class Login(FormView):
     def form_valid(self, form):
         login(self.request, form.get_user())
         return super(Login, self).form_valid(form)
+
+# def registro(request):
+
+#     template_name = 'usuarios/registro.html'
+#     form = UsuarioForm(request.POST or None)
+
+#     if form.is_valid():
+#         form.save()
+#         return HttpResponseRedirect(reverse('login'))
+
+#     return render(request, template_name, {'form': form})
+
+
+class Registro(CreateView):
+	model = User
+	template_name = 'usuarios/registro.html'
+	form_class = UsuarioForm
+	success_url = reverse_lazy('login')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

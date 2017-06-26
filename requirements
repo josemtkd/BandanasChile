@@ -1,1 +1,2 @@
 pillow
+django-bootstrap-form==3.2.1
