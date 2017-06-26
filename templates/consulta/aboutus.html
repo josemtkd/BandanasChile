@@ -98,10 +98,11 @@
     </div>
     <div class="col-sm-7 ">
       <div class="row">
+      <p>Ingresa tu correo y nos comunicaremos contigo!</p>
       <form id='formulario' method='post' action=''>
         {% csrf_token %}
         {{form.as_p}}
-        <p><input type="submit" value="Enviar"></p>
+        <p><input class= "btn btn-primary" type="submit" value="Enviar"></p>
       </form>
       </div>
     </div>

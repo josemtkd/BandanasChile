@@ -12,15 +12,15 @@ from django.core.mail import EmailMessage
 
 def contacto(request):
 	template_name = 'consulta/aboutus.html'
-	if request.method == 'POST':
+	if request.method == 'post':
 		form=ContactoForm(request.POST)
 		if form.is_valid():
 			titulo = 'Mensaje desde página bandanas'
-			contenido = forms.cleaned_data['mensaje'] +"\n"
-			contenido += 'Comunicarse a: '+ form.cleaned_data['correo']
+			contenido = form.cleaned_data['mensaje'] +"\n"
+			#contenido += 'Comunicarse a: '+ form.cleaned_data['correo']
 			correo= EmailMessage (titulo,contenido, to= ['jmvc92@gmail.com'])
 			correo.send()
-			return	HttpResponseRedirect('index')
+			return	HttpResponseRedirect('asdsa')
 
 	else:
 		form =ContactoForm()
