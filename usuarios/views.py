@@ -20,17 +20,21 @@ from usuarios.form import UsuarioForm
 # Create your views here.
 def logout(request):
   auth.logout(request)
-  template_name = 'portal/logout.html'
+  template_name = 'usuarios/logout.html'
   return render(request,template_name)
 
 
+def perfil(request):
+
+    return render(request, 'usuarios/perfil.html')
+
 class Login(FormView):
     
-    template_name = 'portal/login.html'
+    template_name = 'usuarios/login.html'
     
     form_class = AuthenticationForm
     
-    success_url =  reverse_lazy("index")
+    success_url =  reverse_lazy("perfil")
  
     def dispatch(self, request, *args, **kwargs):
         
@@ -50,6 +54,8 @@ class Registro(CreateView):
 	template_name = 'usuarios/registro.html'
 	form_class = UsuarioForm
 	success_url = reverse_lazy('login')
+
+
 
 
 

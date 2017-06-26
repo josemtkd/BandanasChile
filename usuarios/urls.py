@@ -9,4 +9,5 @@ urlpatterns = [
 	url(r'^login', Login.as_view(), name="login"),
 	url(r'^logout', views.logout, name="logout"),
 	url(r'^registro', Registro.as_view(), name="registro"),
+	url(r'^perfil', views.perfil, name="perfil"),
 ]

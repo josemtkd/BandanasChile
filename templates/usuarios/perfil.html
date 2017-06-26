@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+    		<div class="col-md-12" align="center">
+    			<img class="img-responsive img-portfolio img-hover" src="">
+    		</div>
+    		<div class="col-md-12">
+    			<p class="text-center"><strong> {{user.first_name}}  {{user.last_name}}</strong></p>
+    		</div>
+    		<div class="col-md-12">
+    			<br >
+    			<ul class="list-group list-primary">
+    				<a href="#" class="list-group-item">Mi perfil</a>
+    				<a href="#" class="list-group-item">Imagen</a>
+    				<a href="#" class="list-group-item">Datos Personales</a>
+    				<a href="#" class="list-group-item">Direcciones</a>
+				</ul>
+			</div>
+        </div>
+	</div>
+</div>
+
+
+{% endblock %}
