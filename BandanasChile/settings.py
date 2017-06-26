@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'usuarios',
     'bootstrapform',
     'sorl.thumbnail',
+    'formContacto',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,10 @@ MEDIA_URL = '/media/'
 
 #Extension user
 AUTH_USER_MODEL = 'usuarios.Usuario'
+#Cfg enviar msje usando gmail
+
+EMAIL_USE_TLS =True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'jmvc92@gmail.com'
+EMAIL_HOST_PASSWORD ='paulawhiteca640'
+EMAIL_PORT = 587
