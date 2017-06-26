@@ -3,4 +3,13 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-# Register your models here.
+from .models import Categoria,Producto, Stock
+
+class ProductoAdmin(admin.ModelAdmin):
+	list_display = ('id', 'nombre', 'categoria', 'creado', 'photo')
+	list_filter = ('categoria'),
+	list_search = ('nombre','destacada')
+	
+admin.site.register(Categoria)
+admin.site.register(Producto,ProductoAdmin)
+
