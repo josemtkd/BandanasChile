@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'portal',
     'usuarios',
     'bootstrapform',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,7 @@ TEMPLATES = [
         'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -129,3 +131,5 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+#Extension user
+AUTH_USER_MODEL = 'usuarios.Usuario'

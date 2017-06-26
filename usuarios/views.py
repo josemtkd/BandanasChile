@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from usuarios.models import Usuario
 from django.views.generic import CreateView
 from django.contrib.auth import logout
 from django.contrib.auth import login
@@ -50,7 +51,7 @@ class Login(FormView):
 
 
 class Registro(CreateView):
-	model = User
+	model = Usuario
 	template_name = 'usuarios/registro.html'
 	form_class = UsuarioForm
 	success_url = reverse_lazy('login')

@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+{% load thumbnail %}
 {% block content %}
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
     		<div class="col-md-12" align="center">
-    			<img class="img-responsive img-portfolio img-hover" src="">
+    		{% thumbnail user.fotoPerfil "200x200" crop="center" as im %}
+          		<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive img-thumbnail pull-left img-margin-right">
+        	{% endthumbnail %}
     		</div>
     		<div class="col-md-12">
-    			<p class="text-center"><strong> {{user.first_name}}  {{user.last_name}}</strong></p>
+    			<p class="text-center "><strong> {{user.first_name}}  {{user.last_name}}</strong></p>
     		</div>
     		<div class="col-md-12">
     			<br >
