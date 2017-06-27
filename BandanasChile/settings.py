@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'portal',
     'usuarios',
     'producto_bandana',
+    'carrito_compras',
 ]
 
 MIDDLEWARE = [

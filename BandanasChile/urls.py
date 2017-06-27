@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^', include('portal.urls')),
     url(r'^', include('usuarios.urls')),
     url(r'^', include('producto_bandana.urls')),
+    url(r'^', include('carrito_compras.urls')),
     url(r'^admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

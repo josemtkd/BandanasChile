@@ -33,3 +33,23 @@ class Stock(models.Model):
 
 	def __str__(self):
 		return (self.cantidad)
+
+'''
+class Carrito(models.Model):
+	user = models.ForeignKey(Usuario)
+    active = models.BooleanField(verbose_name='Activa')
+    order_date = models.DateField(null=True)
+    payment_type = models.CharField(max_length=100, null=True)
+    payment_id = models.CharField(max_length=100, null=True)
+
+	def __str__(self):
+		return (self.user)
+'''
+
+class AgregarProducto(models.Model):
+	producto = models.ForeignKey(Producto)
+	cantidad = models.IntegerField()
+	fecha_pedido = models.DateField(null=True)
+
+	def __str__(self):
+		return (self.producto)

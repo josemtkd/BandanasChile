@@ -4,8 +4,7 @@
 {% block content %}
 
 <div class="container">
-
-    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
         <div class="col-md-3">
             <div class="row">
                 <div class="col-sm-4 col-lg-12"> 
@@ -28,7 +27,7 @@
                             {% endthumbnail %}
                             <div class="caption">
                                 <h4 class="pull-right">${{producto.categoria.precio}}</h4>
-                                <h4><a href="#">{{producto.nombre}}</a>
+                                <h4><a href="{% url 'detalle' producto.id %}">{{producto.nombre}}</a>
                                 </h4>
                                 <p>{{producto.descripcion}}</p>
                             </div>
@@ -49,6 +48,7 @@
 
             </div>
 
+    </div>
     </div>
 </div>
 <div class="container">
