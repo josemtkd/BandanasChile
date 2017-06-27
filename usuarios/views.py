@@ -6,15 +6,18 @@ from django.views.generic.edit import FormView
 from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
+
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from usuarios.models import Usuario
 from django.views.generic import CreateView
+
 from django.contrib.auth import logout
 from django.contrib.auth import login
 from django.contrib import auth
 from django.shortcuts import render
 from django.http import HttpResponse
+
 from usuarios.form import *
 from django.urls import reverse
 
@@ -48,13 +51,14 @@ def perfil(request):
         
     return render(request, template_name, {'form': form , 'form2': form2 })
 
+
 class Login(FormView):
     
-    template_name = 'usuarios/login.html'
+    template_name = 'portal/login.html'
     
     form_class = AuthenticationForm
     
-    success_url =  reverse_lazy("perfil")
+    success_url =  reverse_lazy("index")
  
     def dispatch(self, request, *args, **kwargs):
         
@@ -74,22 +78,5 @@ class Registro(CreateView):
 	template_name = 'usuarios/registro.html'
 	form_class = UsuarioForm
 	success_url = reverse_lazy('login')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

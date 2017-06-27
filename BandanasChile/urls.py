@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^', include('portal.urls')),
     url(r'^', include('usuarios.urls')),
     url(r'^', include('formContacto.urls')),
+    url(r'^', include('producto_bandana.urls')),
+    url(r'^', include('carrito_compras.urls')),
     url(r'^admin/', admin.site.urls),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

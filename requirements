@@ -1,3 +1,6 @@
 pillow
+<<<<<<< HEAD
 django-bootstrap-form==3.2.1
 sorl-thumbnail
+=======
+>>>>>>> funcionalidad_productos_bandana

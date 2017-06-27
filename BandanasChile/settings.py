@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'bootstrapform',
     'sorl.thumbnail',
     'formContacto',
+    'producto_bandana',
+    'carrito_compras',
 ]
 
 MIDDLEWARE = [

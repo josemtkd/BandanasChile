@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block titulo %} Bandanas Chile {% endblock %}
+{% block content %}
+
+<div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-sm-4 col-lg-12"> 
+                        <p class="lead">Categorías productos</p>
+                        {% for cat in categoria %}
+                        <div class="list-group">
+                            <a href="{% url 'categorias' cat.id %}" class="list-group-item">{{cat.nombre}}</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="row">
+                {% for producto in nueva %}
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            {% thumbnail producto.photo "320x150" crop="center" as image %}
+                            <img src="{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}" class="img-responsive img-thumbnail">
+                            {% endthumbnail %}
+                            <div class="caption">
+                                <h4 class="pull-right">${{producto.categoria.precio}}</h4>
+                                <h4><a href="{% url 'detalle' producto.id %}">{{producto.nombre}}</a>
+                                </h4>
+                                <p>{{producto.descripcion}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+</div>
+
+{% endblock %}
