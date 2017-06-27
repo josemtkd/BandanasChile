@@ -24,10 +24,21 @@ def producto_detalle(request, pk):
     template_name = 'producto_bandana/producto_detalle.html'
     return render(request, template_name, {'producto_detalle': producto})
 
-# ESTA FUNCION PERMITE MOSTRAR EN LA PLANTILLA DE producto_categoria.html SOLO LOS PRODUCTOS
-# DE UNA CATEGORIA X
+'''
 def producto_categoria(request, pk):
+	data = {}
 	producto = get_object_or_404(Categoria, pk=pk)
 
 	template_name = 'producto_bandana/producto_categoria.html'
 	return render(request, template_name, {'producto_categoria': producto})
+'''
+
+def producto_categoria(request, pk):
+	data = {}
+	categoria = get_object_or_404(Categoria, pk=pk)
+	print categoria.id
+	data['productos'] = Producto.objects.filter(categoria = categoria.id)
+	data['categorias'] = Categoria.objects.all()
+	
+	template_name = 'producto_bandana/producto_categoria.html'
+	return render(request, template_name, data)
