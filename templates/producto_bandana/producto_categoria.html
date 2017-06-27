@@ -6,18 +6,18 @@
 <div class="container">
 
     <div class="col-sm-12 col-md-12 col-lg-12">
-    <div class="col-md-3">
-                <div class="row">
-                    <div class="col-sm-4 col-lg-12"> 
-                        <p class="lead">Categorías productos</p>
-                        {% for cat in categorias %}
-                        <div class="list-group">
-                            <a href="{% url 'categorias' cat.id %}" class="list-group-item">{{cat.nombre}}</a>
-                        </div>
-                        {% endfor %}
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-sm-4 col-lg-12"> 
+                    <p class="lead">Categorías productos</p>
+                    {% for cat in categorias %}
+                    <div class="list-group">
+                        <a href="{% url 'categorias' cat.id %}" class="list-group-item">{{cat.nombre}}</a>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
+        </div>
         <div class="col-md-9">
                 <div class="row">
                 {% for producto in productos %}
@@ -27,10 +27,10 @@
                             <img src="{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}" class="img-responsive img-thumbnail">
                             {% endthumbnail %}
                             <div class="caption">
-                                <h4 class="pull-right">${{producto..precio}}</h4>
+                                <h4 class="pull-right">${{producto.categoria.precio}}</h4>
                                 <h4><a href="#">{{producto.nombre}}</a>
                                 </h4>
-                                <p>{{producto_categoria.descripcion}}</p>
+                                <p>{{producto.descripcion}}</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -48,7 +48,13 @@
                 </div>
 
             </div>
+
     </div>
 </div>
-
+<div class="container">
+    <ul class="pager">
+      <li><a href="#">Previous</a></li>
+      <li><a href="#">Next</a></li>
+    </ul>
+</div>
 {% endblock %}
