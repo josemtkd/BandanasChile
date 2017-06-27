@@ -4,7 +4,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-	url(r'^producto_bandana', views.lista_productos, name="producto_bandana"),
-	url(r'^detalle', views.producto_detalle, name="detalle"),
-	url(r'^categoria_alternativa', views.categoria_alternativa, name="alternativas"),
+	url(r'^productos', views.lista_productos, name="productos"),
+	url(r'^detalle/(?P<pk>[0-9]+)/$', views.producto_detalle, name='detalle'),
+	url(r'^categorias/(?P<pk>[0-9]+)/$', views.producto_categoria, name="categorias"),
 ]

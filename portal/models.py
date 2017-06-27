@@ -17,6 +17,7 @@ class Producto(models.Model):
 	descripcion = models.TextField(verbose_name='Descripción')
 	nueva = models.BooleanField(verbose_name='Nueva')
 	categoria = models.ForeignKey(Categoria,verbose_name='Categoría')
+	#stock = models.ForeignKey(Stock,verbose_name='Stock')
 	creado= models.DateTimeField(auto_now_add=True)
 	modificado = models.DateTimeField(auto_now_add=True)
 	photo = models.ImageField(upload_to='imagenes',verbose_name='photo')

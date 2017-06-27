@@ -133,3 +133,5 @@ MEDIA_URL = '/media/'
 
 #Extension user
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+TEMPLATE_DEBUG = True
